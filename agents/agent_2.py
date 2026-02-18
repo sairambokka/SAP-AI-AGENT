@@ -3,6 +3,8 @@ import json
 import requests
 from openai import OpenAI
 from dotenv import load_dotenv
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from hana_connector import fetch_data_from_hana
 
 # Load environment variables
@@ -12,28 +14,28 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:3000")
 
-def get_inventory():
+def get_materials():
     """
-    Fetch inventory data.
+    Fetch material master data.
     """
     try:
-        response = requests.get(f"{API_BASE_URL}/inventory")
+        response = requests.get(f"{API_BASE_URL}/materials")
         response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as e:
         return {"error": str(e)}
 
-def get_inventory_from_hana():
+def get_materials_from_hana():
     """
-    Fetch inventory directly from SAP HANA database.
-    Note: You may need to adjust the table name 'INVENTORY' to match your actual schema.
+    Fetch materials directly from SAP HANA database.
+    Note: You may need to adjust the table name 'MATERIALS' to match your actual schema.
     """
-    print("Attempting to fetch inventory from SAP HANA...")
-    # Example query - replace 'INVENTORY' with your actual table name if different
-    query = "SELECT * FROM INVENTORY LIMIT 50" 
+    print("Attempting to fetch materials from SAP HANA...")
+    # Example query - replace 'MATERIALS' with your actual table name if different
+    query = 'SELECT "Material", "Description", "Plant", "CurrentGroup" FROM MATERIAL_MASTER'
     return fetch_data_from_hana(query)
 
-SYSTEM_PROMPT_PATH = "system-prompt-4.txt"
+SYSTEM_PROMPT_PATH = os.path.join(os.path.dirname(__file__), "..", "system-prompts", "system-prompt-2.txt")
 
 def load_system_prompt():
     with open(SYSTEM_PROMPT_PATH, "r") as f:
@@ -46,23 +48,25 @@ def analyze_data(data):
     system_prompt = load_system_prompt()
     
     # Convert data to string (JSON dump)
-    data_str = json.dumps(data, indent=2)
+    data_str = json.dumps(data, indent=2, default=str)
     
     try:
         completion = client.chat.completions.create(
             model="gpt-4o",
             messages=[
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": f"Here is the inventory data to analyze:\n{data_str}"}
+                {"role": "user", "content": f"Here is the material data to classify:\n{data_str}"}
             ],
-            temperature=0
+            temperature=0,
+            response_format={"type": "json_object"}
         )
-        return completion.choices[0].message.content
+        raw = completion.choices[0].message.content
+        return json.loads(raw)
     except Exception as e:
         return f"Error during analysis: {str(e)}"
 
 def main():
-    print("--- SAP Inventory Intelligence Agent ---")
+    print("--- SAP Material Intelligence Agent ---")
     
     # Check API availability
     try:
@@ -84,46 +88,49 @@ def main():
         else:
             print(f"SAP HANA Connection failed: {hana_test}")
 
-    inventory_data = []
+    materials_data = []
     
     # Try fetching from API first
-    print("\n1. Fetching Inventory...")
-    api_data = get_inventory()
+    print("\n1. Fetching Materials...")
+    api_data = get_materials()
     
     if isinstance(api_data, list) and api_data:
-        inventory_data = api_data
-        print(f"   Retrieved {len(inventory_data)} inventory records from API.")
+        materials_data = api_data
+        print(f"   Retrieved {len(materials_data)} materials from API.")
     elif hana_available:
         # Fallback to HANA or prefer HANA if API failed
-        print("   API inventory not found or error. Trying SAP HANA...")
-        hana_data = get_inventory_from_hana()
+        print("   API materials not found or error. Trying SAP HANA...")
+        hana_data = get_materials_from_hana()
         if isinstance(hana_data, list):
-            inventory_data = hana_data
-            print(f"   Retrieved {len(inventory_data)} inventory records from SAP HANA.")
+            materials_data = hana_data
+            print(f"   Retrieved {len(materials_data)} materials from SAP HANA.")
         else:
              print(f"   Error fetching from HANA: {hana_data}")
     
-    if not inventory_data:
+    if not materials_data:
         if isinstance(api_data, dict) and "error" in api_data:
              print(f"   API Error: {api_data['error']}")
-        print("   No inventory data found from any source to analyze.")
+        print("   No materials found from any source to analyze.")
         return
 
-    # Data Cleaning
+    # Data Cleaning (Minimal for now, can be expanded based on actual data shape)
     print("2. Cleaning data...")
-    cleaned_inventory = []
-    for item in inventory_data:
+    cleaned_materials = []
+    for item in materials_data:
         cleaned_item = item.copy()
         for key, value in cleaned_item.items():
             if isinstance(value, str):
                 cleaned_item[key] = value.strip()
-        cleaned_inventory.append(cleaned_item)
+        cleaned_materials.append(cleaned_item)
 
     print("3. Analyzing data with AI...")
-    analysis_result = analyze_data(cleaned_inventory)
+    analysis_result = analyze_data(cleaned_materials)
     
     print("\n--- Analysis Result ---")
-    print(analysis_result)
+    if isinstance(analysis_result, dict):
+        print(json.dumps(analysis_result, indent=2, default=str))
+    else:
+        print(analysis_result)
     print("-----------------------")
 
 if __name__ == "__main__":

@@ -26,17 +26,20 @@ def get_hana_connection():
         if isinstance(hana_port, str):
             hana_port = int(hana_port)
 
+        # Debug connection params
+        print(f"Connecting to {hana_address}:{hana_port} as {hana_user}...")
+        
         conn = dbapi.connect(
             address=hana_address,
-            port=hana_port,
+            port=int(hana_port),
             user=hana_user,
             password=hana_password,
-            encrypt='true', # Required for HANA Cloud
-            sslValidateCertificate='false' # For trial instances
+            encrypt=True, # Boolean required for some versions
+            sslValidateCertificate=False # Boolean 
         )
         return conn
     except Exception as e:
-        print(f"Failed to connect to SAP HANA: {e}")
+        print(f"Failed to connect to SAP HANA: {str(e)}")
         return None
 
 def fetch_data_from_hana(query):

@@ -3,6 +3,8 @@ import json
 import requests
 from openai import OpenAI
 from dotenv import load_dotenv
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from hana_connector import fetch_data_from_hana
 
 # Load environment variables
@@ -52,10 +54,10 @@ def get_orders_from_hana():
     print("Attempting to fetch orders from SAP HANA...")
     # Example query - replace 'ORDERS' with your actual table name if different
     # You might also need schema prefix like 'MY_SCHEMA"."ORDERS'
-    query = "SELECT * FROM ORDERS LIMIT 50" 
+    query = 'SELECT "SalesOrder", "Customer", "Material", "Qty", "DeliveryDate", "Status" FROM SALES_ORDERS_ANALYSIS'
     return fetch_data_from_hana(query)
 
-SYSTEM_PROMPT_PATH = "system-prompt-1.txt"
+SYSTEM_PROMPT_PATH = os.path.join(os.path.dirname(__file__), "..", "system-prompts", "system-prompt-1.txt")
 
 def load_system_prompt():
     with open(SYSTEM_PROMPT_PATH, "r") as f:
@@ -68,18 +70,20 @@ def analyze_data(data):
     system_prompt = load_system_prompt()
     
     # Convert data to string (JSON dump)
-    data_str = json.dumps(data, indent=2)
+    data_str = json.dumps(data, indent=2, default=str)
     
     try:
         completion = client.chat.completions.create(
-            model="gpt-4o",  # Or gpt-3.5-turbo if preferred
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": f"Here is the sales order data to analyze:\n{data_str}"}
             ],
-            temperature=0  # Deterministic for analysis
+            temperature=0,
+            response_format={"type": "json_object"}
         )
-        return completion.choices[0].message.content
+        raw = completion.choices[0].message.content
+        return json.loads(raw)
     except Exception as e:
         return f"Error during analysis: {str(e)}"
 
@@ -161,7 +165,10 @@ def main():
     analysis_result = analyze_data(cleaned_orders)
     
     print("\n--- Analysis Result ---")
-    print(analysis_result)
+    if isinstance(analysis_result, dict):
+        print(json.dumps(analysis_result, indent=2, default=str))
+    else:
+        print(analysis_result)
     print("-----------------------")
 
 if __name__ == "__main__":

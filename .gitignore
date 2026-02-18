@@ -1,4 +1,24 @@
-__pycache__/
+# Sensitive files
 .env
+sap-hana.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
 venv/
+.venv/
+*.egg-info/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude
+.claude/
