@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "row_count": 8,
+    "columns_detected": [
+      "Supplier",
+      "OnTimeDelivery%",
+      "QualityScore",
+      "Spend",
+      "EmailText"
+    ],
+    "data_quality_issues": []
+  },
+  "supplier_scorecards": [
+    {
+      "supplier": "SUP-100 TechCorp",
+      "performance_metrics": {
+        "on_time_delivery_percent": 97.5,
+        "quality_score": 96,
+        "spend": "$1,250,000"
+      },
+      "risk_assessment": {
+        "risk_score": 0,
+        "risk_level": "Low",
+        "risk_drivers": [
+          "Excellent on-time delivery and quality scores."
+        ]
+      },
+      "delivery_reliability": {
+        "classification": "Excellent",
+        "justification": "On-time delivery percentage is above 95%."
+      },
+      "email_sentiment": {
+        "sentiment": "positive",
+        "confidence": 0.9,
+        "evidence": [
+          "Delivery on schedule.",
+          "All units passed QC.",
+          "Looking forward to continued partnership."
+        ]
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Maintain current supplier relationship.",
+          "rationale": "Supplier is performing excellently with no risk indicators."
+        }
+      ],
+      "explanation": "SUP-100 TechCorp is a low-risk supplier with excellent delivery and quality performance. Positive email sentiment supports a strong partnership."
+    },
+    {
+      "supplier": "SUP-101 SteelWorks",
+      "performance_metrics": {
+        "on_time_delivery_percent": 82,
+        "quality_score": 88.5,
+        "spend": "$780,000"
+      },
+      "risk_assessment": {
+        "risk_score": 50,
+        "risk_level": "Medium",
+        "risk_drivers": [
+          "On-time delivery below 85%.",
+          "Slight delay due to raw material shortage."
+        ]
+      },
+      "delivery_reliability": {
+        "classification": "At Risk",
+        "justification": "On-time delivery percentage is between 70% and 84%."
+      },
+      "email_sentiment": {
+        "sentiment": "concerned",
+        "confidence": 0.7,
+        "evidence": [
+          "slight delay",
+          "raw material shortage"
+        ]
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Engage with supplier to address raw material shortages.",
+          "rationale": "Medium risk due to delivery delays and material shortages."
+        }
+      ],
+      "explanation": "SUP-101 SteelWorks has medium risk due to delivery delays and material shortages. Quality is acceptable, but delivery reliability is at risk."
+    },
+    {
+      "supplier": "SUP-102 ChemSupply",
+      "performance_metrics": {
+        "on_time_delivery_percent": 65,
+        "quality_score": 72,
+        "spend": "$430,000"
+      },
+      "risk_assessment": {
+        "risk_score": 100,
+        "risk_level": "High",
+        "risk_drivers": [
+          "Critical on-time delivery and quality issues.",
+          "High-risk email content indicating inability to meet deadlines."
+        ]
+      },
+      "delivery_reliability": {
+        "classification": "Critical",
+        "justification": "On-time delivery percentage is below 70%."
+      },
+      "email_sentiment": {
+        "sentiment": "critical",
+        "confidence": 0.95,
+        "evidence": [
+          "cannot meet the Q1 delivery deadline",
+          "Critical shortage of base chemicals",
+          "Shutdown of reactor line expected"
+        ]
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Immediate review and contingency planning for supply chain.",
+          "rationale": "High risk due to critical shortages and inability to meet delivery deadlines."
+        }
+      ],
+      "explanation": "SUP-102 ChemSupply is a high-risk supplier with critical delivery and quality issues. Immediate action is required due to severe supply chain disruptions."
+    },
+    {
+      "supplier": "SUP-103 ElectroParts",
+      "performance_metrics": {
+        "on_time_delivery_percent": 91,
+        "quality_score": 94,
+        "spend": "$920,000"
+      },
+      "risk_assessment": {
+        "risk_score": 15,
+        "risk_level": "Low",
+        "risk_drivers": [
+          "Minor issue with labeling, but resolved."
+        ]
+      },
+      "delivery_reliability": {
+        "classification": "Good",
+        "justification": "On-time delivery percentage is between 85% and 94%."
+      },
+      "email_sentiment": {
+        "sentiment": "neutral",
+        "confidence": 0.8,
+        "evidence": [
+          "Minor issue with labeling on last shipment, corrected."
+        ]
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Monitor for any recurring issues.",
+          "rationale": "Low risk with resolved minor issues."
+        }
+      ],
+      "explanation": "SUP-103 ElectroParts is a low-risk supplier with good delivery and quality performance. Minor issues have been resolved, indicating reliability."
+    },
+    {
+      "supplier": "SUP-104 PackagingPlus",
+      "performance_metrics": {
+        "on_time_delivery_percent": 96,
+        "quality_score": 98,
+        "spend": "$310,000"
+      },
+      "risk_assessment": {
+        "risk_score": 0,
+        "risk_level": "Low",
+        "risk_drivers": [
+          "Excellent delivery and quality performance."
+        ]
+      },
+      "delivery_reliability": {
+        "classification": "Excellent",
+        "justification": "On-time delivery percentage is above 95%."
+      },
+      "email_sentiment": {
+        "sentiment": "positive",
+        "confidence": 0.9,
+        "evidence": [
+          "All orders fulfilled.",
+          "Quality audit passed with zero defects.",
+          "Happy to support volume increase."
+        ]
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Consider increasing order volume.",
+          "rationale": "Supplier is performing excellently with capacity to support more volume."
+        }
+      ],
+      "explanation": "SUP-104 PackagingPlus is a low-risk supplier with excellent delivery and quality performance. Positive sentiment and capacity for increased volume."
+    },
+    {
+      "supplier": "SUP-105 GlobalMetals",
+      "performance_metrics": {
+        "on_time_delivery_percent": 78,
+        "quality_score": 68,
+        "spend": "$1,100,000"
+      },
+      "risk_assessment": {
+        "risk_score": 90,
+        "risk_level": "High",
+        "risk_drivers": [
+          "Critical quality issues and delivery delays.",
+          "High-risk email content indicating backorder and capacity issues."
+        ]
+      },
+      "delivery_reliability": {
+        "classification": "At Risk",
+        "justification": "On-time delivery percentage is between 70% and 84%."
+      },
+      "email_sentiment": {
+        "sentiment": "critical",
+        "confidence": 0.95,
+        "evidence": [
+          "Backorder on aluminum stock.",
+          "Capacity issue at our main plant.",
+          "Unable to deliver full quantity this month."
+        ]
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Urgently address supply chain issues and explore alternative suppliers.",
+          "rationale": "High risk due to critical quality and delivery issues."
+        }
+      ],
+      "explanation": "SUP-105 GlobalMetals is a high-risk supplier with critical quality and delivery issues. Immediate action is needed to mitigate supply chain risks."
+    },
+    {
+      "supplier": "SUP-106 PrecisionTools",
+      "performance_metrics": {
+        "on_time_delivery_percent": 88,
+        "quality_score": 91,
+        "spend": "$560,000"
+      },
+      "risk_assessment": {
+        "risk_score": 30,
+        "risk_level": "Medium",
+        "risk_drivers": [
+          "Delivery delays due to logistics."
+        ]
+      },
+      "delivery_reliability": {
+        "classification": "Good",
+        "justification": "On-time delivery percentage is between 85% and 94%."
+      },
+      "email_sentiment": {
+        "sentiment": "concerned",
+        "confidence": 0.7,
+        "evidence": [
+          "Shipment delayed by 2 days due to logistics."
+        ]
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Work with supplier to improve logistics planning.",
+          "rationale": "Medium risk due to delivery delays."
+        }
+      ],
+      "explanation": "SUP-106 PrecisionTools has medium risk due to logistics-related delivery delays. Quality is good, but improvements in logistics are needed."
+    },
+    {
+      "supplier": "SUP-107 RawMaterials Co",
+      "performance_metrics": {
+        "on_time_delivery_percent": 93,
+        "quality_score": 85,
+        "spend": "$670,000"
+      },
+      "risk_assessment": {
+        "risk_score": 30,
+        "risk_level": "Medium",
+        "risk_drivers": [
+          "Quality issues with some items below spec tolerance."
+        ]
+      },
+      "delivery_reliability": {
+        "classification": "Good",
+        "justification": "On-time delivery percentage is between 85% and 94%."
+      },
+      "email_sentiment": {
+        "sentiment": "concerned",
+        "confidence": 0.7,
+        "evidence": [
+          "Some items below spec tolerance, investigating root cause."
+        ]
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Investigate and resolve quality issues.",
+          "rationale": "Medium risk due to quality issues affecting some items."
+        }
+      ],
+      "explanation": "SUP-107 RawMaterials Co has medium risk due to quality issues. Delivery is reliable, but quality improvements are necessary."
+    }
+  ],
+  "portfolio_summary": {
+    "high_risk_suppliers": 2,
+    "medium_risk_suppliers": 3,
+    "low_risk_suppliers": 3,
+    "average_risk_score": 43.125,
+    "suppliers_requiring_immediate_attention": [
+      "SUP-102",
+      "SUP-105"
+    ]
+  }
+}

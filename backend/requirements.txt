@@ -1,0 +1,6 @@
+openai
+requests
+python-dotenv
+hdbcli
+pydantic==2.12.5
+pydantic-core==2.41.5

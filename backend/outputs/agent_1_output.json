@@ -1,0 +1,434 @@
+{
+  "meta": {
+    "as_of_date": "2023-10-05",
+    "row_count": 28,
+    "columns_detected": [
+      "SalesOrder",
+      "Customer",
+      "Material",
+      "Qty",
+      "DeliveryDate",
+      "Status"
+    ],
+    "data_quality_issues": []
+  },
+  "late_delivery_probability": {
+    "summary": {
+      "probability_distribution": {
+        "high": 8,
+        "medium": 5,
+        "low": 10,
+        "unknown": 5
+      },
+      "top_risk_drivers": [
+        "Delayed status",
+        "Backordered status",
+        "Hold status"
+      ]
+    },
+    "orders": [
+      {
+        "sales_order": "SO-1001",
+        "customer": "Acme Corp",
+        "material": "Laptop Pro 15",
+        "qty": 25,
+        "delivery_date": "2026-02-10",
+        "status": "Delayed",
+        "risk_level": "high",
+        "probability_score": 75,
+        "risk_reasons": [
+          "Delayed status"
+        ],
+        "recommended_actions": [
+          "Contact supplier for expedited shipping",
+          "Notify customer of potential delay"
+        ]
+      },
+      {
+        "sales_order": "SO-1006",
+        "customer": "TechStart Inc",
+        "material": "USB-C Hub",
+        "qty": 300,
+        "delivery_date": "2026-02-05",
+        "status": "Backordered",
+        "risk_level": "high",
+        "probability_score": 75,
+        "risk_reasons": [
+          "Backordered status"
+        ],
+        "recommended_actions": [
+          "Increase inventory buffer",
+          "Communicate with customer about delay"
+        ]
+      },
+      {
+        "sales_order": "SO-1007",
+        "customer": "MegaRetail",
+        "material": "Noise Cancelling Headphones",
+        "qty": 1000,
+        "delivery_date": "2026-02-12",
+        "status": "Hold",
+        "risk_level": "high",
+        "probability_score": 75,
+        "risk_reasons": [
+          "Hold status"
+        ],
+        "recommended_actions": [
+          "Resolve hold issue",
+          "Update customer on order status"
+        ]
+      },
+      {
+        "sales_order": "SO-1009",
+        "customer": "SmartLogistics",
+        "material": "Printer A4 Color",
+        "qty": 30,
+        "delivery_date": "2026-01-28",
+        "status": "Delayed",
+        "risk_level": "high",
+        "probability_score": 75,
+        "risk_reasons": [
+          "Delayed status"
+        ],
+        "recommended_actions": [
+          "Investigate delay cause",
+          "Provide customer with revised delivery date"
+        ]
+      },
+      {
+        "sales_order": "SO-1013",
+        "customer": "BrightFuture Ltd",
+        "material": "Office Desk Chair",
+        "qty": 20,
+        "delivery_date": "2026-02-14",
+        "status": "Delayed",
+        "risk_level": "high",
+        "probability_score": 75,
+        "risk_reasons": [
+          "Delayed status"
+        ],
+        "recommended_actions": [
+          "Check supplier availability",
+          "Inform customer of delay"
+        ]
+      },
+      {
+        "sales_order": "SO-1016",
+        "customer": "Acme Corp",
+        "material": "Office Desk Chair",
+        "qty": 40,
+        "delivery_date": "2026-01-25",
+        "status": "Delayed",
+        "risk_level": "high",
+        "probability_score": 75,
+        "risk_reasons": [
+          "Delayed status"
+        ],
+        "recommended_actions": [
+          "Expedite shipping",
+          "Notify customer of delay"
+        ]
+      },
+      {
+        "sales_order": "SO-1017",
+        "customer": "Acme Corp",
+        "material": "Printer A4 Color",
+        "qty": 15,
+        "delivery_date": "2026-02-02",
+        "status": "Delayed",
+        "risk_level": "high",
+        "probability_score": 75,
+        "risk_reasons": [
+          "Delayed status"
+        ],
+        "recommended_actions": [
+          "Contact logistics for update",
+          "Communicate delay to customer"
+        ]
+      },
+      {
+        "sales_order": "SO-1023",
+        "customer": "NovaTech GmbH",
+        "material": "Mechanical Keyboard",
+        "qty": 600,
+        "delivery_date": "2026-02-11",
+        "status": "Delayed",
+        "risk_level": "high",
+        "probability_score": 75,
+        "risk_reasons": [
+          "Delayed status"
+        ],
+        "recommended_actions": [
+          "Review supply chain issues",
+          "Update customer on delay"
+        ]
+      },
+      {
+        "sales_order": "SO-1002",
+        "customer": "Acme Corp",
+        "material": "Wireless Mouse",
+        "qty": 200,
+        "delivery_date": "2026-02-20",
+        "status": "Open",
+        "risk_level": "medium",
+        "probability_score": 35,
+        "risk_reasons": [
+          "Open status"
+        ],
+        "recommended_actions": [
+          "Monitor order progress",
+          "Ensure timely processing"
+        ]
+      },
+      {
+        "sales_order": "SO-1004",
+        "customer": "Global Industries",
+        "material": "Standing Desk",
+        "qty": 10,
+        "delivery_date": "2026-02-18",
+        "status": "Processing",
+        "risk_level": "medium",
+        "probability_score": 35,
+        "risk_reasons": [
+          "Processing status"
+        ],
+        "recommended_actions": [
+          "Check production schedule",
+          "Confirm delivery timeline"
+        ]
+      },
+      {
+        "sales_order": "SO-1010",
+        "customer": "SmartLogistics",
+        "material": "Notebook Pack",
+        "qty": 2000,
+        "delivery_date": "2026-02-25",
+        "status": "Processing",
+        "risk_level": "medium",
+        "probability_score": 35,
+        "risk_reasons": [
+          "Processing status"
+        ],
+        "recommended_actions": [
+          "Ensure resources are allocated",
+          "Communicate with customer"
+        ]
+      },
+      {
+        "sales_order": "SO-1022",
+        "customer": "NovaTech GmbH",
+        "material": "Standing Desk",
+        "qty": 200,
+        "delivery_date": "2026-02-16",
+        "status": "Processing",
+        "risk_level": "medium",
+        "probability_score": 35,
+        "risk_reasons": [
+          "Processing status"
+        ],
+        "recommended_actions": [
+          "Verify stock availability",
+          "Update customer on progress"
+        ]
+      },
+      {
+        "sales_order": "SO-1025",
+        "customer": "MegaRetail",
+        "material": "Laptop Pro 15",
+        "qty": 2000,
+        "delivery_date": "2026-02-19",
+        "status": "Processing",
+        "risk_level": "medium",
+        "probability_score": 35,
+        "risk_reasons": [
+          "Processing status"
+        ],
+        "recommended_actions": [
+          "Coordinate with production",
+          "Ensure timely delivery"
+        ]
+      },
+      {
+        "sales_order": "SO-1003",
+        "customer": "Global Industries",
+        "material": "LED Monitor 27in",
+        "qty": 50,
+        "delivery_date": "2026-01-15",
+        "status": "Delivered",
+        "risk_level": "low",
+        "probability_score": 0,
+        "risk_reasons": [
+          "Delivered status"
+        ],
+        "recommended_actions": []
+      },
+      {
+        "sales_order": "SO-1012",
+        "customer": "BrightFuture Ltd",
+        "material": "Laptop Pro 15",
+        "qty": 5,
+        "delivery_date": "2026-02-08",
+        "status": "Delivered",
+        "risk_level": "low",
+        "probability_score": 0,
+        "risk_reasons": [
+          "Delivered status"
+        ],
+        "recommended_actions": []
+      },
+      {
+        "sales_order": "SO-1015",
+        "customer": "MegaRetail",
+        "material": "LED Monitor 27in",
+        "qty": 200,
+        "delivery_date": "2026-01-20",
+        "status": "Closed",
+        "risk_level": "low",
+        "probability_score": 0,
+        "risk_reasons": [
+          "Closed status"
+        ],
+        "recommended_actions": []
+      },
+      {
+        "sales_order": "SO-1027",
+        "customer": "BrightFuture Ltd",
+        "material": "Wireless Mouse",
+        "qty": 100,
+        "delivery_date": "2026-01-10",
+        "status": "Delivered",
+        "risk_level": "low",
+        "probability_score": 0,
+        "risk_reasons": [
+          "Delivered status"
+        ],
+        "recommended_actions": []
+      },
+      {
+        "sales_order": "SO-1028",
+        "customer": "BrightFuture Ltd",
+        "material": "Notebook Pack",
+        "qty": 500,
+        "delivery_date": "2026-01-18",
+        "status": "Closed",
+        "risk_level": "low",
+        "probability_score": 0,
+        "risk_reasons": [
+          "Closed status"
+        ],
+        "recommended_actions": []
+      }
+    ]
+  },
+  "customer_sentiment": {
+    "status": "available",
+    "notes": "Sentiment inferred from order status and delivery issues.",
+    "customers": [
+      {
+        "customer": "Acme Corp",
+        "sentiment": "at_risk",
+        "confidence": 0.9,
+        "signals": [
+          "Multiple delayed orders"
+        ],
+        "recommended_actions": [
+          "Engage with customer to address concerns",
+          "Improve delivery reliability"
+        ]
+      },
+      {
+        "customer": "TechStart Inc",
+        "sentiment": "neutral",
+        "confidence": 0.6,
+        "signals": [
+          "High volume orders with mixed status"
+        ],
+        "recommended_actions": [
+          "Monitor order fulfillment closely"
+        ]
+      },
+      {
+        "customer": "Global Industries",
+        "sentiment": "neutral",
+        "confidence": 0.7,
+        "signals": [
+          "Orders mostly delivered or processing"
+        ],
+        "recommended_actions": [
+          "Maintain current service levels"
+        ]
+      },
+      {
+        "customer": "MegaRetail",
+        "sentiment": "neutral",
+        "confidence": 0.6,
+        "signals": [
+          "Large orders with some on hold"
+        ],
+        "recommended_actions": [
+          "Resolve hold issues promptly"
+        ]
+      },
+      {
+        "customer": "SmartLogistics",
+        "sentiment": "at_risk",
+        "confidence": 0.8,
+        "signals": [
+          "Backordered and delayed orders"
+        ],
+        "recommended_actions": [
+          "Improve supply chain coordination"
+        ]
+      },
+      {
+        "customer": "BrightFuture Ltd",
+        "sentiment": "positive",
+        "confidence": 0.8,
+        "signals": [
+          "Orders delivered on time"
+        ],
+        "recommended_actions": [
+          "Continue strong performance"
+        ]
+      },
+      {
+        "customer": "NovaTech GmbH",
+        "sentiment": "neutral",
+        "confidence": 0.6,
+        "signals": [
+          "Mixed order statuses"
+        ],
+        "recommended_actions": [
+          "Ensure timely processing"
+        ]
+      }
+    ]
+  },
+  "pricing_anomalies": {
+    "status": "not_available",
+    "notes": "Pricing fields are not present in the dataset, so pricing anomaly detection is not possible.",
+    "anomalies": []
+  },
+  "recommended_actions": {
+    "global": [
+      {
+        "priority": "P0",
+        "action": "Address delayed and backordered items immediately",
+        "rationale": "High risk of customer dissatisfaction due to delays",
+        "scope": "order_level"
+      },
+      {
+        "priority": "P1",
+        "action": "Improve communication with customers about order status",
+        "rationale": "Proactive communication can mitigate negative sentiment",
+        "scope": "customer_level"
+      },
+      {
+        "priority": "P2",
+        "action": "Enhance supply chain resilience",
+        "rationale": "Reduce future risks of delays and backorders",
+        "scope": "process_level"
+      }
+    ]
+  }
+}

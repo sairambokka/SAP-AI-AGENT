@@ -1,0 +1,1032 @@
+{
+  "meta": {
+    "as_of_date": "2023-11-23",
+    "row_count": 22,
+    "columns_detected": [
+      "ProdOrder",
+      "WorkCenter",
+      "StartDate",
+      "EndDate",
+      "Status",
+      "Scrap%"
+    ],
+    "assumptions_used": [
+      {
+        "name": "as_of_date_default",
+        "value": "2023-11-23",
+        "reason": "Not provided in input"
+      }
+    ],
+    "data_quality_issues": []
+  },
+  "production_delay_predictions": [
+    {
+      "production_order": "PO-100001",
+      "work_center": "WC-10",
+      "inputs": {
+        "start_date": "2026-02-10",
+        "end_date": "2026-02-20",
+        "status": "In Process",
+        "scrap_percent": 4.5
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 10,
+        "days_remaining": 1185,
+        "overlapping_orders_count": 4
+      },
+      "delay_assessment": {
+        "delay_probability": 0.45,
+        "risk_level": "Medium",
+        "risk_score": 45,
+        "risk_drivers": [
+          "Scrap% between 3-5%: +10",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'In Process': +10",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-10 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Monitor daily",
+          "rationale": "Medium risk due to overlapping orders and scrap percentage."
+        },
+        {
+          "priority": "P1",
+          "action": "Validate material availability",
+          "rationale": "Ensure materials are available to avoid further delays."
+        },
+        {
+          "priority": "P1",
+          "action": "Review load balancing",
+          "rationale": "Consider redistributing workload to manage congestion."
+        }
+      ],
+      "explanation": "Order PO-100001 is at medium risk of delay due to moderate scrap percentage and high work center congestion. Monitoring and load balancing are recommended."
+    },
+    {
+      "production_order": "PO-100002",
+      "work_center": "WC-10",
+      "inputs": {
+        "start_date": "2026-02-12",
+        "end_date": "2026-02-22",
+        "status": "Released",
+        "scrap_percent": 2
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 10,
+        "days_remaining": 1187,
+        "overlapping_orders_count": 4
+      },
+      "delay_assessment": {
+        "delay_probability": 0.15,
+        "risk_level": "Low",
+        "risk_score": 15,
+        "risk_drivers": [
+          "Scrap% between 0-2%: +0",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'Released': +5",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-10 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Continue planned schedule",
+          "rationale": "Low risk; no immediate action required."
+        }
+      ],
+      "explanation": "Order PO-100002 is at low risk of delay. Despite work center congestion, the low scrap percentage and status suggest minimal risk."
+    },
+    {
+      "production_order": "PO-100003",
+      "work_center": "WC-10",
+      "inputs": {
+        "start_date": "2026-02-15",
+        "end_date": "2026-02-25",
+        "status": "Released",
+        "scrap_percent": 1.5
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 10,
+        "days_remaining": 1190,
+        "overlapping_orders_count": 4
+      },
+      "delay_assessment": {
+        "delay_probability": 0.15,
+        "risk_level": "Low",
+        "risk_score": 15,
+        "risk_drivers": [
+          "Scrap% between 0-2%: +0",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'Released': +5",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-10 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Continue planned schedule",
+          "rationale": "Low risk; no immediate action required."
+        }
+      ],
+      "explanation": "Order PO-100003 is at low risk of delay. The low scrap percentage and status suggest minimal risk despite work center congestion."
+    },
+    {
+      "production_order": "PO-100004",
+      "work_center": "WC-20",
+      "inputs": {
+        "start_date": "2026-02-08",
+        "end_date": "2026-02-18",
+        "status": "In Process",
+        "scrap_percent": 12
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 10,
+        "days_remaining": 1183,
+        "overlapping_orders_count": 3
+      },
+      "delay_assessment": {
+        "delay_probability": 0.6,
+        "risk_level": "High",
+        "risk_score": 60,
+        "risk_drivers": [
+          "Scrap% >10%: +30",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'In Process': +10",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-20 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Expedite order",
+          "rationale": "High risk due to high scrap percentage and work center congestion."
+        },
+        {
+          "priority": "P0",
+          "action": "Reallocate capacity",
+          "rationale": "Manage workload to reduce congestion and delay risk."
+        },
+        {
+          "priority": "P0",
+          "action": "Reduce scrap through quality review",
+          "rationale": "High scrap percentage is a significant risk driver."
+        },
+        {
+          "priority": "P0",
+          "action": "Consider overtime shift",
+          "rationale": "Increase capacity to meet deadlines."
+        }
+      ],
+      "explanation": "Order PO-100004 is at high risk of delay due to a high scrap percentage and work center congestion. Immediate actions are recommended to mitigate risks."
+    },
+    {
+      "production_order": "PO-100005",
+      "work_center": "WC-20",
+      "inputs": {
+        "start_date": "2026-02-14",
+        "end_date": "2026-02-24",
+        "status": "Released",
+        "scrap_percent": 3
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 10,
+        "days_remaining": 1189,
+        "overlapping_orders_count": 3
+      },
+      "delay_assessment": {
+        "delay_probability": 0.35,
+        "risk_level": "Medium",
+        "risk_score": 35,
+        "risk_drivers": [
+          "Scrap% between 3-5%: +10",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'Released': +5",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-20 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Monitor daily",
+          "rationale": "Medium risk due to overlapping orders and scrap percentage."
+        },
+        {
+          "priority": "P1",
+          "action": "Validate material availability",
+          "rationale": "Ensure materials are available to avoid further delays."
+        },
+        {
+          "priority": "P1",
+          "action": "Review load balancing",
+          "rationale": "Consider redistributing workload to manage congestion."
+        }
+      ],
+      "explanation": "Order PO-100005 is at medium risk of delay due to moderate scrap percentage and work center congestion. Monitoring and load balancing are recommended."
+    },
+    {
+      "production_order": "PO-100006",
+      "work_center": "WC-30",
+      "inputs": {
+        "start_date": "2026-02-01",
+        "end_date": "2026-02-15",
+        "status": "Completed",
+        "scrap_percent": 1
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 14,
+        "days_remaining": 1180,
+        "overlapping_orders_count": 1
+      },
+      "delay_assessment": {
+        "delay_probability": 0.0,
+        "risk_level": "Low",
+        "risk_score": 0,
+        "risk_drivers": [
+          "Scrap% between 0-2%: +0",
+          "WorkCenter has less than 2 overlapping orders: +0",
+          "Status 'Completed': -30",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": false,
+        "work_center_load_comment": "WC-30 has minimal overlapping orders, indicating no congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Continue planned schedule",
+          "rationale": "Order is completed; no further action required."
+        }
+      ],
+      "explanation": "Order PO-100006 is completed with no risk of delay. The low scrap percentage and status confirm successful completion."
+    },
+    {
+      "production_order": "PO-100007",
+      "work_center": "WC-30",
+      "inputs": {
+        "start_date": "2026-02-16",
+        "end_date": "2026-02-28",
+        "status": "In Process",
+        "scrap_percent": 7.5
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 12,
+        "days_remaining": 1191,
+        "overlapping_orders_count": 1
+      },
+      "delay_assessment": {
+        "delay_probability": 0.3,
+        "risk_level": "Medium",
+        "risk_score": 30,
+        "risk_drivers": [
+          "Scrap% between 6-10%: +20",
+          "WorkCenter has less than 2 overlapping orders: +0",
+          "Status 'In Process': +10",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": false,
+        "work_center_load_comment": "WC-30 has minimal overlapping orders, indicating no congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Monitor daily",
+          "rationale": "Medium risk due to scrap percentage."
+        },
+        {
+          "priority": "P1",
+          "action": "Validate material availability",
+          "rationale": "Ensure materials are available to avoid further delays."
+        }
+      ],
+      "explanation": "Order PO-100007 is at medium risk of delay due to a moderate scrap percentage. Monitoring and material validation are recommended."
+    },
+    {
+      "production_order": "PO-100008",
+      "work_center": "WC-10",
+      "inputs": {
+        "start_date": "2026-02-18",
+        "end_date": "2026-02-28",
+        "status": "Released",
+        "scrap_percent": 0.5
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 10,
+        "days_remaining": 1193,
+        "overlapping_orders_count": 4
+      },
+      "delay_assessment": {
+        "delay_probability": 0.25,
+        "risk_level": "Low",
+        "risk_score": 25,
+        "risk_drivers": [
+          "Scrap% between 0-2%: +0",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'Released': +5",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-10 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Continue planned schedule",
+          "rationale": "Low risk; no immediate action required."
+        }
+      ],
+      "explanation": "Order PO-100008 is at low risk of delay. Despite work center congestion, the low scrap percentage and status suggest minimal risk."
+    },
+    {
+      "production_order": "PO-100009",
+      "work_center": "WC-40",
+      "inputs": {
+        "start_date": "2026-02-05",
+        "end_date": "2026-02-17",
+        "status": "In Process",
+        "scrap_percent": 15
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 12,
+        "days_remaining": 1182,
+        "overlapping_orders_count": 3
+      },
+      "delay_assessment": {
+        "delay_probability": 0.7,
+        "risk_level": "High",
+        "risk_score": 70,
+        "risk_drivers": [
+          "Scrap% >10%: +30",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'In Process': +10",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-40 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Expedite order",
+          "rationale": "High risk due to high scrap percentage and work center congestion."
+        },
+        {
+          "priority": "P0",
+          "action": "Reallocate capacity",
+          "rationale": "Manage workload to reduce congestion and delay risk."
+        },
+        {
+          "priority": "P0",
+          "action": "Reduce scrap through quality review",
+          "rationale": "High scrap percentage is a significant risk driver."
+        },
+        {
+          "priority": "P0",
+          "action": "Consider overtime shift",
+          "rationale": "Increase capacity to meet deadlines."
+        }
+      ],
+      "explanation": "Order PO-100009 is at high risk of delay due to a high scrap percentage and work center congestion. Immediate actions are recommended to mitigate risks."
+    },
+    {
+      "production_order": "PO-100010",
+      "work_center": "WC-40",
+      "inputs": {
+        "start_date": "2026-02-10",
+        "end_date": "2026-02-19",
+        "status": "Released",
+        "scrap_percent": 6
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 9,
+        "days_remaining": 1185,
+        "overlapping_orders_count": 3
+      },
+      "delay_assessment": {
+        "delay_probability": 0.45,
+        "risk_level": "Medium",
+        "risk_score": 45,
+        "risk_drivers": [
+          "Scrap% between 6-10%: +20",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'Released': +5",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-40 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Monitor daily",
+          "rationale": "Medium risk due to overlapping orders and scrap percentage."
+        },
+        {
+          "priority": "P1",
+          "action": "Validate material availability",
+          "rationale": "Ensure materials are available to avoid further delays."
+        },
+        {
+          "priority": "P1",
+          "action": "Review load balancing",
+          "rationale": "Consider redistributing workload to manage congestion."
+        }
+      ],
+      "explanation": "Order PO-100010 is at medium risk of delay due to moderate scrap percentage and work center congestion. Monitoring and load balancing are recommended."
+    },
+    {
+      "production_order": "PO-100011",
+      "work_center": "WC-20",
+      "inputs": {
+        "start_date": "2026-02-16",
+        "end_date": "2026-02-26",
+        "status": "Released",
+        "scrap_percent": 2.5
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 10,
+        "days_remaining": 1191,
+        "overlapping_orders_count": 3
+      },
+      "delay_assessment": {
+        "delay_probability": 0.35,
+        "risk_level": "Medium",
+        "risk_score": 35,
+        "risk_drivers": [
+          "Scrap% between 3-5%: +10",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'Released': +5",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-20 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Monitor daily",
+          "rationale": "Medium risk due to overlapping orders and scrap percentage."
+        },
+        {
+          "priority": "P1",
+          "action": "Validate material availability",
+          "rationale": "Ensure materials are available to avoid further delays."
+        },
+        {
+          "priority": "P1",
+          "action": "Review load balancing",
+          "rationale": "Consider redistributing workload to manage congestion."
+        }
+      ],
+      "explanation": "Order PO-100011 is at medium risk of delay due to moderate scrap percentage and work center congestion. Monitoring and load balancing are recommended."
+    },
+    {
+      "production_order": "PO-100012",
+      "work_center": "WC-30",
+      "inputs": {
+        "start_date": "2026-02-20",
+        "end_date": "2026-03-05",
+        "status": "Released",
+        "scrap_percent": 0.8
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 14,
+        "days_remaining": 1195,
+        "overlapping_orders_count": 1
+      },
+      "delay_assessment": {
+        "delay_probability": 0.05,
+        "risk_level": "Low",
+        "risk_score": 5,
+        "risk_drivers": [
+          "Scrap% between 0-2%: +0",
+          "WorkCenter has less than 2 overlapping orders: +0",
+          "Status 'Released': +5",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": false,
+        "work_center_load_comment": "WC-30 has minimal overlapping orders, indicating no congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Continue planned schedule",
+          "rationale": "Low risk; no immediate action required."
+        }
+      ],
+      "explanation": "Order PO-100012 is at low risk of delay. The low scrap percentage and status suggest minimal risk with no congestion."
+    },
+    {
+      "production_order": "PO-100013",
+      "work_center": "WC-20",
+      "inputs": {
+        "start_date": "2026-02-10",
+        "end_date": "2026-02-22",
+        "status": "In Process",
+        "scrap_percent": 8
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 12,
+        "days_remaining": 1187,
+        "overlapping_orders_count": 3
+      },
+      "delay_assessment": {
+        "delay_probability": 0.5,
+        "risk_level": "High",
+        "risk_score": 50,
+        "risk_drivers": [
+          "Scrap% between 6-10%: +20",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'In Process': +10",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-20 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Expedite order",
+          "rationale": "High risk due to high scrap percentage and work center congestion."
+        },
+        {
+          "priority": "P0",
+          "action": "Reallocate capacity",
+          "rationale": "Manage workload to reduce congestion and delay risk."
+        },
+        {
+          "priority": "P0",
+          "action": "Reduce scrap through quality review",
+          "rationale": "High scrap percentage is a significant risk driver."
+        },
+        {
+          "priority": "P0",
+          "action": "Consider overtime shift",
+          "rationale": "Increase capacity to meet deadlines."
+        }
+      ],
+      "explanation": "Order PO-100013 is at high risk of delay due to a high scrap percentage and work center congestion. Immediate actions are recommended to mitigate risks."
+    },
+    {
+      "production_order": "PO-100014",
+      "work_center": "WC-20",
+      "inputs": {
+        "start_date": "2026-02-13",
+        "end_date": "2026-02-23",
+        "status": "Released",
+        "scrap_percent": 5.5
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 10,
+        "days_remaining": 1188,
+        "overlapping_orders_count": 3
+      },
+      "delay_assessment": {
+        "delay_probability": 0.35,
+        "risk_level": "Medium",
+        "risk_score": 35,
+        "risk_drivers": [
+          "Scrap% between 3-5%: +10",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'Released': +5",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-20 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Monitor daily",
+          "rationale": "Medium risk due to overlapping orders and scrap percentage."
+        },
+        {
+          "priority": "P1",
+          "action": "Validate material availability",
+          "rationale": "Ensure materials are available to avoid further delays."
+        },
+        {
+          "priority": "P1",
+          "action": "Review load balancing",
+          "rationale": "Consider redistributing workload to manage congestion."
+        }
+      ],
+      "explanation": "Order PO-100014 is at medium risk of delay due to moderate scrap percentage and work center congestion. Monitoring and load balancing are recommended."
+    },
+    {
+      "production_order": "PO-100015",
+      "work_center": "WC-50",
+      "inputs": {
+        "start_date": "2026-02-15",
+        "end_date": "2026-02-18",
+        "status": "In Process",
+        "scrap_percent": 11
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 3,
+        "days_remaining": 1190,
+        "overlapping_orders_count": 3
+      },
+      "delay_assessment": {
+        "delay_probability": 0.7,
+        "risk_level": "High",
+        "risk_score": 70,
+        "risk_drivers": [
+          "Scrap% >10%: +30",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'In Process': +10",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-50 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Expedite order",
+          "rationale": "High risk due to high scrap percentage and work center congestion."
+        },
+        {
+          "priority": "P0",
+          "action": "Reallocate capacity",
+          "rationale": "Manage workload to reduce congestion and delay risk."
+        },
+        {
+          "priority": "P0",
+          "action": "Reduce scrap through quality review",
+          "rationale": "High scrap percentage is a significant risk driver."
+        },
+        {
+          "priority": "P0",
+          "action": "Consider overtime shift",
+          "rationale": "Increase capacity to meet deadlines."
+        }
+      ],
+      "explanation": "Order PO-100015 is at high risk of delay due to a high scrap percentage and work center congestion. Immediate actions are recommended to mitigate risks."
+    },
+    {
+      "production_order": "PO-100016",
+      "work_center": "WC-50",
+      "inputs": {
+        "start_date": "2026-02-14",
+        "end_date": "2026-02-19",
+        "status": "Released",
+        "scrap_percent": 9
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 5,
+        "days_remaining": 1189,
+        "overlapping_orders_count": 3
+      },
+      "delay_assessment": {
+        "delay_probability": 0.55,
+        "risk_level": "Medium",
+        "risk_score": 55,
+        "risk_drivers": [
+          "Scrap% between 6-10%: +20",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'Released': +5",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-50 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Monitor daily",
+          "rationale": "Medium risk due to overlapping orders and scrap percentage."
+        },
+        {
+          "priority": "P1",
+          "action": "Validate material availability",
+          "rationale": "Ensure materials are available to avoid further delays."
+        },
+        {
+          "priority": "P1",
+          "action": "Review load balancing",
+          "rationale": "Consider redistributing workload to manage congestion."
+        }
+      ],
+      "explanation": "Order PO-100016 is at medium risk of delay due to moderate scrap percentage and work center congestion. Monitoring and load balancing are recommended."
+    },
+    {
+      "production_order": "PO-100017",
+      "work_center": "WC-50",
+      "inputs": {
+        "start_date": "2026-02-16",
+        "end_date": "2026-02-20",
+        "status": "Released",
+        "scrap_percent": 3
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 4,
+        "days_remaining": 1191,
+        "overlapping_orders_count": 3
+      },
+      "delay_assessment": {
+        "delay_probability": 0.35,
+        "risk_level": "Medium",
+        "risk_score": 35,
+        "risk_drivers": [
+          "Scrap% between 3-5%: +10",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'Released': +5",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-50 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Monitor daily",
+          "rationale": "Medium risk due to overlapping orders and scrap percentage."
+        },
+        {
+          "priority": "P1",
+          "action": "Validate material availability",
+          "rationale": "Ensure materials are available to avoid further delays."
+        },
+        {
+          "priority": "P1",
+          "action": "Review load balancing",
+          "rationale": "Consider redistributing workload to manage congestion."
+        }
+      ],
+      "explanation": "Order PO-100017 is at medium risk of delay due to moderate scrap percentage and work center congestion. Monitoring and load balancing are recommended."
+    },
+    {
+      "production_order": "PO-100018",
+      "work_center": "WC-30",
+      "inputs": {
+        "start_date": "2026-02-01",
+        "end_date": "2026-02-14",
+        "status": "In Process",
+        "scrap_percent": 6
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 13,
+        "days_remaining": 1180,
+        "overlapping_orders_count": 1
+      },
+      "delay_assessment": {
+        "delay_probability": 0.3,
+        "risk_level": "Medium",
+        "risk_score": 30,
+        "risk_drivers": [
+          "Scrap% between 6-10%: +20",
+          "WorkCenter has less than 2 overlapping orders: +0",
+          "Status 'In Process': +10",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": false,
+        "work_center_load_comment": "WC-30 has minimal overlapping orders, indicating no congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Monitor daily",
+          "rationale": "Medium risk due to scrap percentage."
+        },
+        {
+          "priority": "P1",
+          "action": "Validate material availability",
+          "rationale": "Ensure materials are available to avoid further delays."
+        }
+      ],
+      "explanation": "Order PO-100018 is at medium risk of delay due to a moderate scrap percentage. Monitoring and material validation are recommended."
+    },
+    {
+      "production_order": "PO-100019",
+      "work_center": "WC-40",
+      "inputs": {
+        "start_date": "2026-02-03",
+        "end_date": "2026-02-15",
+        "status": "In Process",
+        "scrap_percent": 14
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 12,
+        "days_remaining": 1180,
+        "overlapping_orders_count": 3
+      },
+      "delay_assessment": {
+        "delay_probability": 0.7,
+        "risk_level": "High",
+        "risk_score": 70,
+        "risk_drivers": [
+          "Scrap% >10%: +30",
+          "WorkCenter has 3 or more overlapping orders: +20",
+          "Status 'In Process': +10",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": true,
+        "work_center_load_comment": "WC-40 has multiple overlapping orders, indicating potential congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Expedite order",
+          "rationale": "High risk due to high scrap percentage and work center congestion."
+        },
+        {
+          "priority": "P0",
+          "action": "Reallocate capacity",
+          "rationale": "Manage workload to reduce congestion and delay risk."
+        },
+        {
+          "priority": "P0",
+          "action": "Reduce scrap through quality review",
+          "rationale": "High scrap percentage is a significant risk driver."
+        },
+        {
+          "priority": "P0",
+          "action": "Consider overtime shift",
+          "rationale": "Increase capacity to meet deadlines."
+        }
+      ],
+      "explanation": "Order PO-100019 is at high risk of delay due to a high scrap percentage and work center congestion. Immediate actions are recommended to mitigate risks."
+    },
+    {
+      "production_order": "PO-100020",
+      "work_center": "WC-10",
+      "inputs": {
+        "start_date": "2026-01-20",
+        "end_date": "2026-02-05",
+        "status": "Completed",
+        "scrap_percent": 0.3
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 16,
+        "days_remaining": 1171,
+        "overlapping_orders_count": 0
+      },
+      "delay_assessment": {
+        "delay_probability": 0.0,
+        "risk_level": "Low",
+        "risk_score": 0,
+        "risk_drivers": [
+          "Scrap% between 0-2%: +0",
+          "WorkCenter has less than 2 overlapping orders: +0",
+          "Status 'Completed': -30",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": false,
+        "work_center_load_comment": "WC-10 has no overlapping orders, indicating no congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Continue planned schedule",
+          "rationale": "Order is completed; no further action required."
+        }
+      ],
+      "explanation": "Order PO-100020 is completed with no risk of delay. The low scrap percentage and status confirm successful completion."
+    },
+    {
+      "production_order": "PO-100021",
+      "work_center": "WC-20",
+      "inputs": {
+        "start_date": "2026-01-25",
+        "end_date": "2026-02-10",
+        "status": "Completed",
+        "scrap_percent": 1.2
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 16,
+        "days_remaining": 1176,
+        "overlapping_orders_count": 0
+      },
+      "delay_assessment": {
+        "delay_probability": 0.0,
+        "risk_level": "Low",
+        "risk_score": 0,
+        "risk_drivers": [
+          "Scrap% between 0-2%: +0",
+          "WorkCenter has less than 2 overlapping orders: +0",
+          "Status 'Completed': -30",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": false,
+        "work_center_load_comment": "WC-20 has no overlapping orders, indicating no congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Continue planned schedule",
+          "rationale": "Order is completed; no further action required."
+        }
+      ],
+      "explanation": "Order PO-100021 is completed with no risk of delay. The low scrap percentage and status confirm successful completion."
+    },
+    {
+      "production_order": "PO-100022",
+      "work_center": "WC-50",
+      "inputs": {
+        "start_date": "2026-02-01",
+        "end_date": "2026-02-12",
+        "status": "Completed",
+        "scrap_percent": 0.5
+      },
+      "calculated_metrics": {
+        "planned_duration_days": 11,
+        "days_remaining": 1179,
+        "overlapping_orders_count": 0
+      },
+      "delay_assessment": {
+        "delay_probability": 0.0,
+        "risk_level": "Low",
+        "risk_score": 0,
+        "risk_drivers": [
+          "Scrap% between 0-2%: +0",
+          "WorkCenter has less than 2 overlapping orders: +0",
+          "Status 'Completed': -30",
+          "Days remaining > 5: +0"
+        ]
+      },
+      "bottleneck_analysis": {
+        "is_bottleneck_related": false,
+        "work_center_load_comment": "WC-50 has no overlapping orders, indicating no congestion."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Continue planned schedule",
+          "rationale": "Order is completed; no further action required."
+        }
+      ],
+      "explanation": "Order PO-100022 is completed with no risk of delay. The low scrap percentage and status confirm successful completion."
+    }
+  ],
+  "plant_summary": {
+    "total_orders": 22,
+    "high_risk_orders": 6,
+    "medium_risk_orders": 8,
+    "low_risk_orders": 8,
+    "identified_bottleneck_work_centers": [
+      "WC-10",
+      "WC-20",
+      "WC-40",
+      "WC-50"
+    ],
+    "most_critical_order": {
+      "production_order": "PO-100009",
+      "delay_probability": 0.7
+    },
+    "overall_risk_commentary": "The plant has a balanced distribution of risk levels with significant congestion in work centers WC-10, WC-20, WC-40, and WC-50. High scrap percentages are a major risk factor."
+  }
+}

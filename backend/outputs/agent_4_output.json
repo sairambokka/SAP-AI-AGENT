@@ -1,0 +1,884 @@
+{
+  "meta": {
+    "as_of_date": "2023-10-05",
+    "row_count": 20,
+    "columns_detected": [
+      "Material",
+      "Plant",
+      "CurrentStock",
+      "DailyConsumption"
+    ],
+    "assumptions_used": [
+      {
+        "name": "lead_time_days_default",
+        "value": 7,
+        "reason": "LeadTimeDays not provided in input"
+      },
+      {
+        "name": "buffer_days_default",
+        "value": 7,
+        "reason": "BufferDays not provided in input"
+      }
+    ],
+    "data_quality_issues": [
+      {
+        "type": "invalid_consumption",
+        "details": "DailyConsumption must be greater than 0",
+        "affected_materials": [
+          "MAT-010"
+        ],
+        "affected_rows": [
+          9
+        ]
+      }
+    ]
+  },
+  "inventory_forecasts": [
+    {
+      "material": "MAT-001",
+      "plant": "1010",
+      "inputs": {
+        "current_stock": 5000,
+        "daily_consumption": 120
+      },
+      "forecast_status": "available",
+      "days_of_supply": 41.67,
+      "stockout_forecast": {
+        "stockout_date": "2023-11-15",
+        "stockout_in_days": 41,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 1680,
+        "urgency": "P2",
+        "rationale": "Days of supply is greater than lead time and buffer days",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 840,
+          "buffer_demand": 840,
+          "target_stock_level": 1680,
+          "reorder_qty_raw": 0,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Monitor stock levels and plan reorder closer to lead time.",
+          "rationale": "Current stock is sufficient for more than lead time and buffer days."
+        }
+      ]
+    },
+    {
+      "material": "MAT-002",
+      "plant": "1010",
+      "inputs": {
+        "current_stock": 150,
+        "daily_consumption": 25
+      },
+      "forecast_status": "available",
+      "days_of_supply": 6,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-11",
+        "stockout_in_days": 6,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 350,
+        "urgency": "P0",
+        "rationale": "Days of supply is less than lead time",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 175,
+          "buffer_demand": 175,
+          "target_stock_level": 350,
+          "reorder_qty_raw": 200,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Initiate immediate reorder to prevent stockout.",
+          "rationale": "Current stock will not last through the lead time."
+        }
+      ]
+    },
+    {
+      "material": "MAT-003",
+      "plant": "1020",
+      "inputs": {
+        "current_stock": 800,
+        "daily_consumption": 40
+      },
+      "forecast_status": "available",
+      "days_of_supply": 20,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-25",
+        "stockout_in_days": 20,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 560,
+        "urgency": "P1",
+        "rationale": "Days of supply is less than lead time plus buffer days",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 280,
+          "buffer_demand": 280,
+          "target_stock_level": 560,
+          "reorder_qty_raw": 0,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Plan reorder within the next week.",
+          "rationale": "Stock will last through lead time but not buffer period."
+        }
+      ]
+    },
+    {
+      "material": "MAT-004",
+      "plant": "1010",
+      "inputs": {
+        "current_stock": 30,
+        "daily_consumption": 8.5
+      },
+      "forecast_status": "available",
+      "days_of_supply": 3.53,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-08",
+        "stockout_in_days": 3,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 119,
+        "urgency": "P0",
+        "rationale": "Days of supply is less than lead time",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 59.5,
+          "buffer_demand": 59.5,
+          "target_stock_level": 119,
+          "reorder_qty_raw": 89,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Initiate immediate reorder to prevent stockout.",
+          "rationale": "Current stock will not last through the lead time."
+        }
+      ]
+    },
+    {
+      "material": "MAT-005",
+      "plant": "1020",
+      "inputs": {
+        "current_stock": 2000,
+        "daily_consumption": 15
+      },
+      "forecast_status": "available",
+      "days_of_supply": 133.33,
+      "stockout_forecast": {
+        "stockout_date": "2024-02-15",
+        "stockout_in_days": 133,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 210,
+        "urgency": "P2",
+        "rationale": "Days of supply is greater than lead time and buffer days",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 105,
+          "buffer_demand": 105,
+          "target_stock_level": 210,
+          "reorder_qty_raw": 0,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Monitor stock levels and plan reorder closer to lead time.",
+          "rationale": "Current stock is sufficient for more than lead time and buffer days."
+        }
+      ]
+    },
+    {
+      "material": "MAT-006",
+      "plant": "1030",
+      "inputs": {
+        "current_stock": 10,
+        "daily_consumption": 12
+      },
+      "forecast_status": "available",
+      "days_of_supply": 0.83,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-06",
+        "stockout_in_days": 0,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 168,
+        "urgency": "P0",
+        "rationale": "Days of supply is less than lead time",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 84,
+          "buffer_demand": 84,
+          "target_stock_level": 168,
+          "reorder_qty_raw": 158,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Initiate immediate reorder to prevent stockout.",
+          "rationale": "Current stock will not last through the lead time."
+        }
+      ]
+    },
+    {
+      "material": "MAT-007",
+      "plant": "1020",
+      "inputs": {
+        "current_stock": 500,
+        "daily_consumption": 3
+      },
+      "forecast_status": "available",
+      "days_of_supply": 166.67,
+      "stockout_forecast": {
+        "stockout_date": "2024-03-20",
+        "stockout_in_days": 166,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 42,
+        "urgency": "P2",
+        "rationale": "Days of supply is greater than lead time and buffer days",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 21,
+          "buffer_demand": 21,
+          "target_stock_level": 42,
+          "reorder_qty_raw": 0,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Monitor stock levels and plan reorder closer to lead time.",
+          "rationale": "Current stock is sufficient for more than lead time and buffer days."
+        }
+      ]
+    },
+    {
+      "material": "MAT-008",
+      "plant": "1030",
+      "inputs": {
+        "current_stock": 200,
+        "daily_consumption": 50
+      },
+      "forecast_status": "available",
+      "days_of_supply": 4,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-09",
+        "stockout_in_days": 4,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 700,
+        "urgency": "P0",
+        "rationale": "Days of supply is less than lead time",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 350,
+          "buffer_demand": 350,
+          "target_stock_level": 700,
+          "reorder_qty_raw": 500,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Initiate immediate reorder to prevent stockout.",
+          "rationale": "Current stock will not last through the lead time."
+        }
+      ]
+    },
+    {
+      "material": "MAT-009",
+      "plant": "1010",
+      "inputs": {
+        "current_stock": 1200,
+        "daily_consumption": 60
+      },
+      "forecast_status": "available",
+      "days_of_supply": 20,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-25",
+        "stockout_in_days": 20,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 840,
+        "urgency": "P1",
+        "rationale": "Days of supply is less than lead time plus buffer days",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 420,
+          "buffer_demand": 420,
+          "target_stock_level": 840,
+          "reorder_qty_raw": 0,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Plan reorder within the next week.",
+          "rationale": "Stock will last through lead time but not buffer period."
+        }
+      ]
+    },
+    {
+      "material": "MAT-010",
+      "plant": "1020",
+      "inputs": {
+        "current_stock": 75,
+        "daily_consumption": 0
+      },
+      "forecast_status": "not_available",
+      "days_of_supply": null,
+      "stockout_forecast": {
+        "stockout_date": null,
+        "stockout_in_days": null,
+        "method": "simple_rate_based",
+        "notes": "Daily consumption is zero, forecast not available"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": null,
+        "urgency": "not_available",
+        "rationale": "Daily consumption is zero, cannot calculate reorder quantity",
+        "calculation_trace": {
+          "lead_time_days": null,
+          "buffer_days": null,
+          "lead_time_demand": null,
+          "buffer_demand": null,
+          "target_stock_level": null,
+          "reorder_qty_raw": null,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "unknown",
+        "confidence": 0.0,
+        "explanation": "Daily consumption is zero, trend cannot be determined."
+      },
+      "recommended_actions": []
+    },
+    {
+      "material": "MAT-011",
+      "plant": "1030",
+      "inputs": {
+        "current_stock": 20,
+        "daily_consumption": 15
+      },
+      "forecast_status": "available",
+      "days_of_supply": 1.33,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-06",
+        "stockout_in_days": 1,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 210,
+        "urgency": "P0",
+        "rationale": "Days of supply is less than lead time",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 105,
+          "buffer_demand": 105,
+          "target_stock_level": 210,
+          "reorder_qty_raw": 190,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Initiate immediate reorder to prevent stockout.",
+          "rationale": "Current stock will not last through the lead time."
+        }
+      ]
+    },
+    {
+      "material": "MAT-012",
+      "plant": "1010",
+      "inputs": {
+        "current_stock": 45,
+        "daily_consumption": 30
+      },
+      "forecast_status": "available",
+      "days_of_supply": 1.5,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-07",
+        "stockout_in_days": 1,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 420,
+        "urgency": "P0",
+        "rationale": "Days of supply is less than lead time",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 210,
+          "buffer_demand": 210,
+          "target_stock_level": 420,
+          "reorder_qty_raw": 375,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Initiate immediate reorder to prevent stockout.",
+          "rationale": "Current stock will not last through the lead time."
+        }
+      ]
+    },
+    {
+      "material": "MAT-013",
+      "plant": "1020",
+      "inputs": {
+        "current_stock": 300,
+        "daily_consumption": 35
+      },
+      "forecast_status": "available",
+      "days_of_supply": 8.57,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-14",
+        "stockout_in_days": 8,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 490,
+        "urgency": "P0",
+        "rationale": "Days of supply is less than lead time",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 245,
+          "buffer_demand": 245,
+          "target_stock_level": 490,
+          "reorder_qty_raw": 190,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Initiate immediate reorder to prevent stockout.",
+          "rationale": "Current stock will not last through the lead time."
+        }
+      ]
+    },
+    {
+      "material": "MAT-014",
+      "plant": "1030",
+      "inputs": {
+        "current_stock": 180,
+        "daily_consumption": 18
+      },
+      "forecast_status": "available",
+      "days_of_supply": 10,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-15",
+        "stockout_in_days": 10,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 252,
+        "urgency": "P1",
+        "rationale": "Days of supply is less than lead time plus buffer days",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 126,
+          "buffer_demand": 126,
+          "target_stock_level": 252,
+          "reorder_qty_raw": 72,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Plan reorder within the next week.",
+          "rationale": "Stock will last through lead time but not buffer period."
+        }
+      ]
+    },
+    {
+      "material": "MAT-015",
+      "plant": "1010",
+      "inputs": {
+        "current_stock": 250,
+        "daily_consumption": 22
+      },
+      "forecast_status": "available",
+      "days_of_supply": 11.36,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-16",
+        "stockout_in_days": 11,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 308,
+        "urgency": "P1",
+        "rationale": "Days of supply is less than lead time plus buffer days",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 154,
+          "buffer_demand": 154,
+          "target_stock_level": 308,
+          "reorder_qty_raw": 58,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P1",
+          "action": "Plan reorder within the next week.",
+          "rationale": "Stock will last through lead time but not buffer period."
+        }
+      ]
+    },
+    {
+      "material": "MAT-016",
+      "plant": "1020",
+      "inputs": {
+        "current_stock": 5000,
+        "daily_consumption": 25
+      },
+      "forecast_status": "available",
+      "days_of_supply": 200,
+      "stockout_forecast": {
+        "stockout_date": "2024-04-22",
+        "stockout_in_days": 200,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 350,
+        "urgency": "P2",
+        "rationale": "Days of supply is greater than lead time and buffer days",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 175,
+          "buffer_demand": 175,
+          "target_stock_level": 350,
+          "reorder_qty_raw": 0,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Monitor stock levels and plan reorder closer to lead time.",
+          "rationale": "Current stock is sufficient for more than lead time and buffer days."
+        }
+      ]
+    },
+    {
+      "material": "MAT-017",
+      "plant": "1010",
+      "inputs": {
+        "current_stock": 3000,
+        "daily_consumption": 10
+      },
+      "forecast_status": "available",
+      "days_of_supply": 300,
+      "stockout_forecast": {
+        "stockout_date": "2024-07-01",
+        "stockout_in_days": 300,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 140,
+        "urgency": "P2",
+        "rationale": "Days of supply is greater than lead time and buffer days",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 70,
+          "buffer_demand": 70,
+          "target_stock_level": 140,
+          "reorder_qty_raw": 0,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Monitor stock levels and plan reorder closer to lead time.",
+          "rationale": "Current stock is sufficient for more than lead time and buffer days."
+        }
+      ]
+    },
+    {
+      "material": "MAT-018",
+      "plant": "1030",
+      "inputs": {
+        "current_stock": 800,
+        "daily_consumption": 5
+      },
+      "forecast_status": "available",
+      "days_of_supply": 160,
+      "stockout_forecast": {
+        "stockout_date": "2024-03-13",
+        "stockout_in_days": 160,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 70,
+        "urgency": "P2",
+        "rationale": "Days of supply is greater than lead time and buffer days",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 35,
+          "buffer_demand": 35,
+          "target_stock_level": 70,
+          "reorder_qty_raw": 0,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Monitor stock levels and plan reorder closer to lead time.",
+          "rationale": "Current stock is sufficient for more than lead time and buffer days."
+        }
+      ]
+    },
+    {
+      "material": "MAT-019",
+      "plant": "1020",
+      "inputs": {
+        "current_stock": 0,
+        "daily_consumption": 20
+      },
+      "forecast_status": "available",
+      "days_of_supply": 0,
+      "stockout_forecast": {
+        "stockout_date": "2023-10-05",
+        "stockout_in_days": 0,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 280,
+        "urgency": "P0",
+        "rationale": "Days of supply is less than lead time",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 140,
+          "buffer_demand": 140,
+          "target_stock_level": 280,
+          "reorder_qty_raw": 280,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P0",
+          "action": "Initiate immediate reorder to prevent stockout.",
+          "rationale": "Current stock is zero, immediate action required."
+        }
+      ]
+    },
+    {
+      "material": "MAT-020",
+      "plant": "1010",
+      "inputs": {
+        "current_stock": 500,
+        "daily_consumption": 0.5
+      },
+      "forecast_status": "available",
+      "days_of_supply": 1000,
+      "stockout_forecast": {
+        "stockout_date": "2026-07-01",
+        "stockout_in_days": 1000,
+        "method": "simple_rate_based",
+        "notes": "No safety stock used"
+      },
+      "reorder_recommendation": {
+        "suggested_reorder_qty": 7,
+        "urgency": "P2",
+        "rationale": "Days of supply is greater than lead time and buffer days",
+        "calculation_trace": {
+          "lead_time_days": 7,
+          "buffer_days": 7,
+          "lead_time_demand": 3.5,
+          "buffer_demand": 3.5,
+          "target_stock_level": 7,
+          "reorder_qty_raw": 0,
+          "adjustments_applied": []
+        }
+      },
+      "demand_trend": {
+        "trend": "stable",
+        "confidence": 0.8,
+        "explanation": "Only average daily consumption is available, indicating a stable trend."
+      },
+      "recommended_actions": [
+        {
+          "priority": "P2",
+          "action": "Monitor stock levels and plan reorder closer to lead time.",
+          "rationale": "Current stock is sufficient for more than lead time and buffer days."
+        }
+      ]
+    }
+  ],
+  "portfolio_summary": {
+    "materials_analyzed": 20,
+    "materials_not_available": 1,
+    "p0_urgent_reorders": 8,
+    "nearest_stockout": {
+      "material": "MAT-006",
+      "plant": "1030",
+      "stockout_date": "2023-10-06",
+      "stockout_in_days": 0
+    },
+    "notes": "8 materials require immediate reorder (P0), with the nearest stockout expected for MAT-006. One material (MAT-010) has invalid consumption data, making forecast unavailable."
+  }
+}
